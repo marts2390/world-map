@@ -1,23 +1,28 @@
 // React
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 // Native
 import { StyleSheet, View } from 'react-native';
 // Store
-import MapView, { LatLng, Marker } from 'react-native-maps';
+import * as Store from '@store/index';
+// Packages
+import MapView, { Marker as Marker } from 'react-native-maps';
 import { BottomSheetView, BottomSheetModal } from '@gorhom/bottom-sheet';
+// Components
 import { Button } from 'react-native-paper';
 
-type Pointer = {
-  coords: LatLng;
-  title?: string;
-};
-
 export const MapScreen = (): React.JSX.Element => {
+  const dispatch = Store.useDispatch();
+
   const sheetRef = useRef<BottomSheetModal>(null);
-  const markerRef = useRef<number>();
-  const [markers, setMarkers] = useState<Pointer[]>([]);
+  const markerRef = useRef<string>();
+
+  const markers = Store.useSelector(store => store.markers.markers);
 
   const snapPoints = useMemo(() => ['25%', '50%'], []);
+
+  useEffect(() => {
+    dispatch(Store.Markers.getMarkers());
+  }, [dispatch]);
 
   return (
     <View
@@ -31,15 +36,14 @@ export const MapScreen = (): React.JSX.Element => {
         onLongPress={e => {
           e.persist();
 
-          setMarkers(prev => [
-            ...prev,
-            {
+          dispatch(
+            Store.Markers.addMarker({
               coords: {
                 latitude: e.nativeEvent?.coordinate.latitude,
                 longitude: e.nativeEvent?.coordinate.longitude,
               },
-            },
-          ]);
+            }),
+          );
         }}>
         {markers.map((item, index) => (
           <Marker
@@ -48,7 +52,9 @@ export const MapScreen = (): React.JSX.Element => {
             onPress={e => {
               e.persist();
 
-              markerRef.current = e.nativeEvent.coordinate.latitude;
+              console.log(e.nativeEvent);
+
+              markerRef.current = e.nativeEvent.id;
               sheetRef.current?.present();
             }}
           />
@@ -66,11 +72,7 @@ export const MapScreen = (): React.JSX.Element => {
             </Button>
             <Button
               onPress={() => {
-                setMarkers(prev =>
-                  prev.filter(
-                    item => item.coords.latitude !== markerRef.current,
-                  ),
-                );
+                // dispatch(Store.Markers.removeMarker({}));
 
                 sheetRef.current?.dismiss();
               }}

@@ -9,7 +9,7 @@ import { MarkerList } from '@src/screens/marker-list';
 // Components
 import { DefaultTheme, Icon } from 'react-native-paper';
 // Types
-import { AppRouter } from '@src/types/router/AppRouter';
+import { AppRouter } from '@src/types/AppRouter';
 
 const Tab = createBottomTabNavigator<AppRouter>();
 
