@@ -5,18 +5,18 @@ import { StyleSheet, View } from 'react-native';
 // Store
 import * as Store from '@store/index';
 // Packages
-import MapView, { Marker as Marker } from 'react-native-maps';
-import { BottomSheetView, BottomSheetModal } from '@gorhom/bottom-sheet';
+import MapView, { Marker as Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 // Components
-import { Button } from 'react-native-paper';
+import { BottomSheetView, BottomSheetModal } from '@gorhom/bottom-sheet';
+import { Button, Text, TextInput } from '@src/components';
 
 export const MapScreen = (): React.JSX.Element => {
   const dispatch = Store.useDispatch();
 
   const sheetRef = useRef<BottomSheetModal>(null);
-  const markerRef = useRef<string>();
+  const markerRef = useRef<number>();
 
-  const markers = Store.useSelector(store => store.markers.markers);
+  const markers = Store.useSelector((store) => store.markers.markers);
 
   const snapPoints = useMemo(() => ['25%', '50%'], []);
 
@@ -28,19 +28,38 @@ export const MapScreen = (): React.JSX.Element => {
     <View
       style={{
         ...StyleSheet.absoluteFillObject,
-        justifyContent: 'flex-end',
-        alignItems: 'center',
       }}>
+      <View
+        style={{
+          paddingHorizontal: 20,
+          position: 'absolute',
+          zIndex: 999,
+          top: 50,
+          flexDirection: 'row',
+          gap: 12,
+          width: '100%',
+        }}>
+        <TextInput
+          rootStyle={{ flex: 1 }}
+          variant="filled"
+          multiline={false}
+          placeholder="Search"
+        />
+      </View>
       <MapView
+        userInterfaceStyle="dark"
+        provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFillObject}
-        onLongPress={e => {
+        onLongPress={(e) => {
           e.persist();
 
           dispatch(
             Store.Markers.addMarker({
-              coords: {
-                latitude: e.nativeEvent?.coordinate.latitude,
-                longitude: e.nativeEvent?.coordinate.longitude,
+              marker: {
+                coords: {
+                  longitude: e.nativeEvent.coordinate.longitude,
+                  latitude: e.nativeEvent.coordinate.latitude,
+                },
               },
             }),
           );
@@ -49,12 +68,10 @@ export const MapScreen = (): React.JSX.Element => {
           <Marker
             key={index}
             coordinate={item.coords}
-            onPress={e => {
+            onPress={(e) => {
               e.persist();
 
-              console.log(e.nativeEvent);
-
-              markerRef.current = e.nativeEvent.id;
+              markerRef.current = e.nativeEvent.coordinate.latitude;
               sheetRef.current?.present();
             }}
           />
@@ -67,18 +84,21 @@ export const MapScreen = (): React.JSX.Element => {
               paddingHorizontal: 20,
               paddingVertical: 20,
             }}>
-            <Button style={{ marginBottom: 20 }} mode="contained">
-              Edit
-            </Button>
             <Button
+              text="Edit"
+              style={{ marginBottom: 20 }}
+              onPress={() => console.log('edit')}
+            />
+            <Button
+              text="Delete marker"
               onPress={() => {
-                // dispatch(Store.Markers.removeMarker({}));
+                if (!markerRef.current) return;
+
+                dispatch(Store.Markers.removeMarker({ id: markerRef.current }));
 
                 sheetRef.current?.dismiss();
               }}
-              mode="outlined">
-              Delete marker
-            </Button>
+            />
           </View>
         </BottomSheetView>
       </BottomSheetModal>

@@ -20,7 +20,7 @@ export type RootReducer<T> = Reducer<
   ActionFromReducersMapObject<T>
 >;
 
-export type AppRootState = ReturnType<typeof rootReducer>;
+export type AppRootState = ReturnType<typeof store.getState>;
 
 export type Dispatch = typeof store.dispatch;
 
@@ -43,7 +43,7 @@ export const rootReducer = combineReducers({
 export const store = configureStore({
   devTools: true,
   reducer: rootReducer,
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
     }),
@@ -54,7 +54,7 @@ export const setupStore = (
 ): EnhancedStore =>
   configureStore({
     reducer: rootReducer,
-    middleware: getDefaultMiddleware =>
+    middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: false,
         immutableCheck: false,

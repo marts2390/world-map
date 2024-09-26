@@ -8,6 +8,7 @@ import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { PaperProvider } from 'react-native-paper';
 import { Router } from './routes';
 import { Provider } from './store';
+import { ThemeContextProvider } from './contexts/ThemeContext';
 
 export const App = (): React.JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -15,14 +16,16 @@ export const App = (): React.JSX.Element => {
   return (
     <Provider>
       <PaperProvider>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <BottomSheetModalProvider>
-            <StatusBar
-              barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-            />
-            <Router />
-          </BottomSheetModalProvider>
-        </GestureHandlerRootView>
+        <ThemeContextProvider>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <BottomSheetModalProvider>
+              <StatusBar
+                barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+              />
+              <Router />
+            </BottomSheetModalProvider>
+          </GestureHandlerRootView>
+        </ThemeContextProvider>
       </PaperProvider>
     </Provider>
   );

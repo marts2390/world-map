@@ -70,6 +70,7 @@
     ],
     "@typescript-eslint/no-var-requires": 0,
     "arrow-body-style": ["warn", "as-needed"],
+    "arrow-parens": ["error", "always"],
     "no-console": "warn",
     "object-curly-spacing": ["error", "always"],
     "react-hooks/rules-of-hooks": "error",
