@@ -1,7 +1,7 @@
 // React
 import React, { useCallback, useEffect, useState } from 'react';
 // Native
-import { View } from 'react-native';
+import { ActivityIndicator, Pressable, View } from 'react-native';
 // Components
 import { Button, Text, TextInput } from '@src/components';
 // Store
@@ -10,7 +10,11 @@ import * as Store from '@store/index';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useStyles } from './styles';
 // Animations
-import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import Animated, {
+  FadeIn,
+  FadeOut,
+  LinearTransition,
+} from 'react-native-reanimated';
 
 export const MapSearchBar = (): React.ReactElement => {
   const dispatch = Store.useDispatch();
@@ -19,15 +23,21 @@ export const MapSearchBar = (): React.ReactElement => {
   const insets = useSafeAreaInsets();
   const styles = useStyles(insets);
 
+  const loading = Store.useSelector((store) => store.markers.resultsLoading);
   const autoCompleteResults = Store.useSelector(
     (store) => store.markers.autoCompleteResults,
   );
 
-  const handleSearch = useCallback((): void => {
-    if (!query) return;
+  const handleSearch = useCallback(
+    (e?: string): void => {
+      if (!query) return;
 
-    dispatch(Store.Markers.handleSearch({ query })).then(() => setQuery(''));
-  }, [dispatch, query]);
+      dispatch(Store.Markers.handleSearch({ query: e || query })).then(() =>
+        setQuery(''),
+      );
+    },
+    [dispatch, query],
+  );
 
   const handleTextChange = (e: string): void => {
     if (!e) {
@@ -59,17 +69,21 @@ export const MapSearchBar = (): React.ReactElement => {
           onChangeText={(e) => handleTextChange(e)}
           rootStyle={styles.input}
           multiline={false}
+          iconStyle={styles.icon}
+          icon={loading ? <ActivityIndicator /> : undefined}
         />
         <Button text="Search" size="small" onPress={handleSearch} />
       </View>
-      {autoCompleteResults && (
+      {!!autoCompleteResults && (
         <Animated.View
           entering={FadeIn}
           exiting={FadeOut}
+          layout={LinearTransition}
           style={styles.autoComplete}>
           {autoCompleteResults?.map((item, i) => (
-            <View
+            <Pressable
               key={item.place_id}
+              onPress={() => handleSearch(item.description)}
               style={{
                 ...styles.autoCompleteItem,
                 paddingBottom:
@@ -78,7 +92,7 @@ export const MapSearchBar = (): React.ReactElement => {
                     : styles.autoCompleteItem.paddingBottom,
               }}>
               <Text variant="body-small">{item.description}</Text>
-            </View>
+            </Pressable>
           ))}
         </Animated.View>
       )}

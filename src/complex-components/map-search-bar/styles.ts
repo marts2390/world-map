@@ -19,6 +19,9 @@ export const useStyles = (insets: EdgeInsets) =>
     input: {
       flex: 1,
     },
+    icon: {
+      paddingRight: getSpacing(3, 'width'),
+    },
     autoComplete: {
       marginTop: getSpacing(3, 'height'),
       paddingHorizontal: getSpacing(3, 'width'),
