@@ -1,7 +1,15 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createReducer, createAsyncThunk, isAnyOf } from '@reduxjs/toolkit';
+import {
+  createReducer,
+  createAsyncThunk,
+  isAnyOf,
+  createAction,
+} from '@reduxjs/toolkit';
+import delivery from '@src/delivery';
 import { Marker } from '@src/types/Marker';
-import { AppRootState } from '@store/index';
+import { SearchResult } from '@src/types/SearchResult';
+import { AppRootState, Dispatch } from '@store/index';
+import { Region } from 'react-native-maps';
 
 /**
  * Type declarations
@@ -10,6 +18,8 @@ import { AppRootState } from '@store/index';
 
 export interface StateProps {
   markers: Marker[];
+  searchResult: SearchResult['results'] | null;
+  region: Region | null;
   error: boolean;
 }
 
@@ -20,6 +30,8 @@ export interface StateProps {
 
 export const initialState: StateProps = {
   markers: [],
+  searchResult: null,
+  region: null,
   error: false,
 };
 
@@ -94,19 +106,70 @@ export const removeMarker = createAsyncThunk<
   };
 });
 
+export const handleSearch = createAsyncThunk<
+  Partial<StateProps>,
+  {query: string},
+  {dispatch: Dispatch}
+>('markers/handle-search', async ({ query }, { dispatch }) => {
+  let data: StateProps['searchResult'] = initialState.searchResult;
+  let error: StateProps['error'] = initialState.error;
+
+  const { value, hasError } = await delivery.MapActions.getSearchResults(query);
+
+  if (value) {
+    data = value.results;
+
+    console.log(value.results)
+
+    dispatch(
+      setRegion({
+        latitude: value.results[0].geometry.location.lat,
+        longitude: value.results[0].geometry.location.lng,
+        latitudeDelta: value.results[0].geometry.viewport.southwest.lat,
+        longitudeDelta: value.results[0].geometry.viewport.northeast.lng,
+      }),
+    );
+  }
+
+  if (hasError) {
+    error = true;
+  }
+
+  return {
+    searchResult: data,
+    error: error,
+  };
+});
+
+export const setRegion = createAction('markers/setRegion', (data: Region) => ({
+  payload: {
+    data,
+  },
+}));
+
 /**
  * Reducer
  * ---------------------------------------------------------------------
  */
 
 export const reducer = createReducer<StateProps>(initialState, (builder) => {
-  builder.addMatcher(
-    isAnyOf(getMarkers.fulfilled, addMarker.fulfilled, removeMarker.fulfilled),
-    (state, action) => ({
+  builder
+    .addCase(setRegion, (state, action) => ({
       ...state,
-      ...action.payload,
-    }),
-  );
+      region: action.payload.data,
+    }))
+    .addMatcher(
+      isAnyOf(
+        getMarkers.fulfilled,
+        addMarker.fulfilled,
+        removeMarker.fulfilled,
+        handleSearch.fulfilled,
+      ),
+      (state, action) => ({
+        ...state,
+        ...action.payload,
+      }),
+    );
 });
 
 /**
