@@ -150,30 +150,35 @@ export const baseStyles: BaseStyles = {
       },
       sizes: {
         xsmall: {
+          minHeight: getSpacing(10, 'height'),
           fontSize: baseTheme.typography.sizes['body-xsmall'],
         },
         small: {
           fontSize: baseTheme.typography.sizes['body-small'],
+          minHeight: getSpacing(10, 'height'),
         },
         medium: {
+          minHeight: getSpacing(15, 'height'),
           fontSize: baseTheme.typography.sizes['body-medium'],
         },
         large: {
+          minHeight: getSpacing(15, 'height'),
           fontSize: baseTheme.typography.sizes['body-large'],
         },
       },
       variants: {
         filled: {
           backgroundColor: baseTheme.colors.white,
-          borderColor: baseTheme.colors.white,
+          borderColor: baseTheme.colors['off-white'],
         },
         outlined: {
           backgroundColor: baseTheme.colors.white,
-          borderColor: baseTheme.colors['grey-2'],
+          borderColor: baseTheme.colors['off-white'],
         },
         ghost: {
           borderWidth: 0,
           paddingHorizontal: 0,
+          borderColor: 'transparent',
         },
       },
     },

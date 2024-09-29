@@ -47,9 +47,12 @@ export const baseTheme: BaseTheme = {
     },
   },
   colors: {
+    primary: '#7200FF',
+    secondary: '#23E2AB',
+    disabled: '#D9DEE7',
     black: '#202327',
-    'black-2': '#1A1C20',
     white: '#FFFFFF',
+    'off-white': '#e8e8e8',
   },
   sizing: {
     'base-width': wpx(4),

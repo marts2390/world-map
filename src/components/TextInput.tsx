@@ -136,10 +136,11 @@ const useStyles = (variant: TextInputVariants, size: Sizes) => {
           ? variantStyles.borderWidth
           : TextInput.defaults.borderWidth,
       flexDirection: TextInput.defaults.flexDirection,
-      minHeight: TextInput.defaults.minHeight,
+      minHeight: sizeStyles.minHeight,
       maxHeight: TextInput.defaults.maxHeight,
       alignItems: 'center',
       backgroundColor: variantStyles.backgroundColor,
+      borderColor: variantStyles.borderColor,
     },
     input: {
       color: baseTheme.colors.black,

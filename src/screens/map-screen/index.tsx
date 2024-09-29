@@ -1,98 +1,51 @@
 // React
 import React, { useEffect, useMemo, useRef } from 'react';
 // Native
-import { StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 // Store
 import * as Store from '@store/index';
-// Packages
-import MapView, { Marker as Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 // Components
-import { BottomSheetView, BottomSheetModal } from '@gorhom/bottom-sheet';
-import { Button } from '@src/components';
+import { BottomSheetModal, BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { MapSearchBar } from '@src/complex-components/map-search-bar';
+import { Details } from './components/details';
+// Icons
+import { Map } from './components/map';
+// Styles
+import { styles } from './styles';
 
 export const MapScreen = (): React.JSX.Element => {
-  const mapRef = useRef<MapView>(null);
   const sheetRef = useRef<BottomSheetModal>(null);
-  const markerRef = useRef<number>();
-  const snapPoints = useMemo(() => ['25%', '50%'], []);
+  const snapPoints = useMemo(() => ['50%', '75%'], []);
 
   const dispatch = Store.useDispatch();
-  const markers = Store.useSelector((store) => store.markers.markers);
-  const region = Store.useSelector((store) => store.markers.region);
+  const results = Store.useSelector((store) => store.markers.searchResult);
 
   useEffect(() => {
     dispatch(Store.Markers.getMarkers());
   }, [dispatch]);
 
   useEffect(() => {
-    if (!region) return;
+    if (!results) return;
 
-    mapRef.current?.animateToRegion(region);
-  }, [region]);
+    sheetRef.current?.present();
+  }, [results]);
 
   return (
-    <View
-      style={{
-        ...StyleSheet.absoluteFillObject,
-      }}>
+    <View style={styles.root}>
       <MapSearchBar />
-      <MapView
-        ref={mapRef}
-        userInterfaceStyle="dark"
-        provider={PROVIDER_GOOGLE}
-        style={StyleSheet.absoluteFillObject}
-        onLongPress={(e) => {
-          e.persist();
-
-          dispatch(
-            Store.Markers.addMarker({
-              marker: {
-                coords: {
-                  longitude: e.nativeEvent.coordinate.longitude,
-                  latitude: e.nativeEvent.coordinate.latitude,
-                },
-              },
-            }),
-          );
-        }}>
-        {markers.map((item, index) => (
-          <Marker
-            key={index}
-            coordinate={item.coords}
-            onPress={(e) => {
-              e.persist();
-
-              markerRef.current = e.nativeEvent.coordinate.latitude;
-              sheetRef.current?.present();
-            }}
+      <Map onMarkerPress={() => sheetRef.current?.present()} />
+      <BottomSheetModal
+        ref={sheetRef}
+        snapPoints={snapPoints}
+        backdropComponent={() => (
+          <Pressable
+            style={styles.backdrop}
+            onPress={() => sheetRef.current?.dismiss()}
           />
-        ))}
-      </MapView>
-      <BottomSheetModal ref={sheetRef} snapPoints={snapPoints}>
-        <BottomSheetView>
-          <View
-            style={{
-              paddingHorizontal: 20,
-              paddingVertical: 20,
-            }}>
-            <Button
-              text="Edit"
-              style={{ marginBottom: 20 }}
-              onPress={() => console.log('edit')}
-            />
-            <Button
-              text="Delete marker"
-              onPress={() => {
-                if (!markerRef.current) return;
-
-                dispatch(Store.Markers.removeMarker({ id: markerRef.current }));
-
-                sheetRef.current?.dismiss();
-              }}
-            />
-          </View>
-        </BottomSheetView>
+        )}>
+        <BottomSheetScrollView>
+          <Details />
+        </BottomSheetScrollView>
       </BottomSheetModal>
     </View>
   );

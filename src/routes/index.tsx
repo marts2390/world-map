@@ -6,14 +6,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // Screens
 import { MapScreen } from '@src/screens/map-screen';
 import { MarkerList } from '@src/screens/marker-list';
-// Components
-import { DefaultTheme, Icon } from 'react-native-paper';
 // Types
 import { AppRouter } from '@src/types/AppRouter';
 // Store
 import * as Store from '@store/index';
 // Location
 import Geolocation from '@react-native-community/geolocation';
+// Theme
+import { baseTheme } from '@src/theme';
+// Icons
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator<AppRouter>();
 
@@ -26,13 +28,13 @@ const tabs: {
   {
     name: 'MapScreen',
     displayName: 'Map',
-    icon: 'earth',
+    icon: 'public',
     component: MapScreen,
   },
   {
     name: 'MarkerList',
     displayName: 'Markers',
-    icon: 'format-list-bulleted',
+    icon: 'list',
     component: MarkerList,
   },
 ];
@@ -66,7 +68,7 @@ export const Router = (): React.ReactElement => {
             component={tab.component}
             options={{
               tabBarLabel: tab.displayName,
-              tabBarActiveTintColor: DefaultTheme.colors.primary,
+              tabBarActiveTintColor: baseTheme.colors.primary,
               tabBarLabelStyle: {
                 fontSize: 12,
                 fontWeight: '700',
@@ -74,11 +76,9 @@ export const Router = (): React.ReactElement => {
               tabBarIcon: ({ focused }) => (
                 <Icon
                   size={25}
-                  source={tab.icon}
+                  name={tab.icon}
                   color={
-                    focused
-                      ? DefaultTheme.colors.primary
-                      : DefaultTheme.colors.backdrop
+                    focused ? baseTheme.colors.primary : baseTheme.colors.black
                   }
                 />
               ),
