@@ -72,7 +72,13 @@ export const MapSearchBar = (): React.ReactElement => {
           iconStyle={styles.icon}
           icon={loading ? <ActivityIndicator /> : undefined}
         />
-        <Button text="Search" size="small" onPress={handleSearch} />
+        <Button
+          text="Search"
+          size="small"
+          style={styles.button}
+          loading={loading}
+          onPress={handleSearch}
+        />
       </View>
       {!!autoCompleteResults && (
         <Animated.View

@@ -22,6 +22,9 @@ export const useStyles = (insets: EdgeInsets) =>
     icon: {
       paddingRight: getSpacing(3, 'width'),
     },
+    button: {
+      width: getSpacing(20, 'width'),
+    },
     autoComplete: {
       marginTop: getSpacing(3, 'height'),
       paddingHorizontal: getSpacing(3, 'width'),
