@@ -1,5 +1,5 @@
 // React
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 // Native
 import { Pressable, View } from 'react-native';
 // Store
@@ -18,22 +18,31 @@ export const MapScreen = (): React.JSX.Element => {
   const snapPoints = useMemo(() => ['50%', '75%'], []);
 
   const dispatch = Store.useDispatch();
-  const results = Store.useSelector((store) => store.markers.searchResult);
+  const details = Store.useSelector((store) => store.markers.details);
+
+  const getDetails = useCallback(
+    (id: string): void => {
+      sheetRef.current?.present();
+
+      dispatch(Store.Markers.getPlaceDetails({ id }));
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     dispatch(Store.Markers.getMarkers());
   }, [dispatch]);
 
   useEffect(() => {
-    if (!results) return;
+    if (!details) return;
 
     sheetRef.current?.present();
-  }, [results]);
+  }, [details]);
 
   return (
     <View style={styles.root}>
       <MapSearchBar />
-      <Map onMarkerPress={() => sheetRef.current?.present()} />
+      <Map onMarkerPress={getDetails} />
       <BottomSheetModal
         ref={sheetRef}
         snapPoints={snapPoints}

@@ -108,7 +108,6 @@ const useStyles = (
 
   return StyleSheet.create({
     root: {
-      flex: 1,
       lineHeight:
         Platform.OS === 'ios' && resetLineheight ? 0 : variantStyles.lineHeight,
       fontSize: variantStyles.fontSize,

@@ -2,15 +2,12 @@ import { getSpacing } from '@src/theme/utils/spacing';
 import { Dimensions, StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  backdrop: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
+  loading: {
+    paddingTop: getSpacing(20, 'height'),
   },
   container: {
     paddingHorizontal: getSpacing(5, 'width'),
+    paddingTop: getSpacing(5, 'height'),
     paddingBottom: getSpacing(5, 'height'),
   },
   title: {

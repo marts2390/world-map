@@ -9,7 +9,6 @@ import delivery from '@src/delivery';
 import { AutocompleteResults } from '@src/types/AutocompleteResults';
 import { Marker } from '@src/types/Marker';
 import { PlaceDetails } from '@src/types/PlaceDetails';
-import { SearchResult } from '@src/types/SearchResult';
 import { AppRootState, Dispatch } from '@store/index';
 import { Dimensions } from 'react-native';
 import { Region } from 'react-native-maps';
@@ -21,13 +20,13 @@ import { Region } from 'react-native-maps';
 
 export interface StateProps {
   markers: Marker[];
-  searchResult: SearchResult['results'] | null;
   autoCompleteResults: AutocompleteResults['predictions'] | null;
   details: PlaceDetails['result'] | null;
   region: Region | null;
   placePhotos: Blob[];
   error: boolean;
   resultsLoading: boolean;
+  detailsLoading: boolean;
 }
 
 /**
@@ -37,13 +36,13 @@ export interface StateProps {
 
 export const initialState: StateProps = {
   markers: [],
-  searchResult: null,
   autoCompleteResults: null,
   details: null,
   region: null,
   error: false,
   placePhotos: [],
   resultsLoading: false,
+  detailsLoading: false,
 };
 
 export const getMarkers = createAsyncThunk<Partial<StateProps>>(
@@ -92,14 +91,14 @@ export const addMarker = createAsyncThunk<
 
 export const removeMarker = createAsyncThunk<
   Partial<StateProps>,
-  {id: number},
+  {id: string},
   {state: AppRootState}
 >('markers/remove-marker', async ({ id }, { getState }) => {
   let data: StateProps['markers'] = initialState.markers;
   let error: StateProps['error'] = initialState.error;
 
   const state = getState().markers.markers;
-  const newState = state.filter((item) => item.coords.latitude !== id);
+  const newState = state.filter((item) => item.id !== id);
 
   const update = await updateMarkers(newState);
 
@@ -122,26 +121,12 @@ export const handleSearch = createAsyncThunk<
   {query: string},
   {dispatch: Dispatch}
 >('markers/handle-search', async ({ query }, { dispatch }) => {
-  let data: StateProps['searchResult'] = initialState.searchResult;
   let error: StateProps['error'] = initialState.error;
-  let photos: StateProps['placePhotos'] = initialState.placePhotos;
-  let details: StateProps['details'] = initialState.details;
 
   const { value, hasError } = await delivery.MapActions.getSearchResults(query);
 
   if (value) {
-    data = value.results;
-
-    const getPlaceDetails = await delivery.MapActions.getPlaceDetails(
-      value.results[0].place_id,
-    );
-
-    if (getPlaceDetails.value) {
-      details = getPlaceDetails.value.result;
-      photos = await getPhotos(
-        getPlaceDetails.value.result.photos.map((item) => item.photo_reference),
-      );
-    }
+    dispatch(getPlaceDetails({ id: value.results[0].place_id }));
 
     const { width, height } = Dimensions.get('window');
 
@@ -167,7 +152,33 @@ export const handleSearch = createAsyncThunk<
   }
 
   return {
-    searchResult: data,
+    error: error,
+  };
+});
+
+export const getPlaceDetails = createAsyncThunk<
+  Partial<StateProps>,
+  {id: string},
+  {dispatch: Dispatch}
+>('markers/get-place-details', async ({ id }) => {
+  let error: StateProps['error'] = initialState.error;
+  let photos: StateProps['placePhotos'] = initialState.placePhotos;
+  let details: StateProps['details'] = initialState.details;
+
+  const { value, hasError } = await delivery.MapActions.getPlaceDetails(id);
+
+  if (value) {
+    details = value.result;
+    photos = await getPhotos(
+      value.result.photos.map((item) => item.photo_reference),
+    );
+  }
+
+  if (hasError) {
+    error = true;
+  }
+
+  return {
     details: details,
     placePhotos: photos,
     error: error,
@@ -229,6 +240,7 @@ export const reducer = createReducer<StateProps>(initialState, (builder) => {
         removeMarker.fulfilled,
         handleSearch.fulfilled,
         getAutoCompleteResults.fulfilled,
+        getPlaceDetails.fulfilled,
       ),
       (state, action) => ({
         ...state,
@@ -240,6 +252,10 @@ export const reducer = createReducer<StateProps>(initialState, (builder) => {
       ...state,
       resultsLoading: true,
     }))
+    .addMatcher(isAnyOf(getPlaceDetails.pending), (state) => ({
+      ...state,
+      detailsLoading: true,
+    }))
     // Loading end
     .addMatcher(
       isAnyOf(
@@ -249,6 +265,13 @@ export const reducer = createReducer<StateProps>(initialState, (builder) => {
       (state) => ({
         ...state,
         resultsLoading: false,
+      }),
+    )
+    .addMatcher(
+      isAnyOf(getPlaceDetails.rejected, getPlaceDetails.fulfilled),
+      (state) => ({
+        ...state,
+        detailsLoading: false,
       }),
     );
 });

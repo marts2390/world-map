@@ -159,6 +159,7 @@ const useStyles = (
       marginRight: getSpacing(2, 'width'),
     },
     text: {
+      height: '100%',
       textDecorationLine: underline ? 'underline' : undefined,
       textDecorationColor: themeColor,
       color:
