@@ -22,8 +22,8 @@ export const createTheme = (theme: ThemeMods): ColorTheme => {
 export const baseTheme: BaseTheme = {
   typography: {
     fonts: {
-      bold: 'Poppins-Bold',
-      'semi-bold': 'Poppins-Medium',
+      bold: 'Poppins-ExtraBold',
+      'semi-bold': 'Poppins-SemiBold',
       regular: 'Poppins-Regular',
     },
     sizes: {

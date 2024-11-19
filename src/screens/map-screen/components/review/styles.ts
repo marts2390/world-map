@@ -18,8 +18,6 @@ export const styles = StyleSheet.create({
   rating: {
     flexDirection: 'row',
     gap: getSpacing(0.5, 'width'),
-  },
-  text: {
-    paddingTop: getSpacing(1, 'height'),
+    paddingVertical: getSpacing(1, 'height'),
   },
 });

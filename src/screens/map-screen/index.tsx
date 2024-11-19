@@ -8,7 +8,6 @@ import * as Store from '@store/index';
 import { BottomSheetModal, BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { MapSearchBar } from '@src/complex-components/map-search-bar';
 import { Details } from './components/details';
-// Icons
 import { Map } from './components/map';
 // Styles
 import { styles } from './styles';

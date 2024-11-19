@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 // Native
 import { ActivityIndicator, Pressable, View } from 'react-native';
 // Components
-import { Button, Text, TextInput } from '@src/components';
+import { Text, TextInput } from '@src/components';
 // Store
 import * as Store from '@store/index';
 // Hooks
@@ -15,6 +15,8 @@ import Animated, {
   FadeOut,
   LinearTransition,
 } from 'react-native-reanimated';
+// Icons
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const MapSearchBar = (): React.ReactElement => {
   const dispatch = Store.useDispatch();
@@ -70,36 +72,36 @@ export const MapSearchBar = (): React.ReactElement => {
           rootStyle={styles.input}
           multiline={false}
           iconStyle={styles.icon}
-          icon={loading ? <ActivityIndicator /> : undefined}
-        />
-        <Button
-          text="Search"
-          size="small"
-          style={styles.button}
-          loading={loading}
-          onPress={handleSearch}
+          icon={
+            loading ? (
+              <ActivityIndicator />
+            ) : (
+              <Icon name="search" onPress={() => handleSearch()} size={25} />
+            )
+          }
         />
       </View>
       {!!autoCompleteResults && (
         <Animated.View
           entering={FadeIn}
           exiting={FadeOut}
-          layout={LinearTransition}
-          style={styles.autoComplete}>
-          {autoCompleteResults?.map((item, i) => (
-            <Pressable
-              key={item.place_id}
-              onPress={() => handleSearch(item.description)}
-              style={{
-                ...styles.autoCompleteItem,
-                paddingBottom:
-                  i === autoCompleteResults.length - 1
-                    ? 0
-                    : styles.autoCompleteItem.paddingBottom,
-              }}>
-              <Text variant="body-small">{item.description}</Text>
-            </Pressable>
-          ))}
+          layout={LinearTransition}>
+          <View style={styles.autoComplete}>
+            {autoCompleteResults?.map((item, i) => (
+              <Pressable
+                key={item.place_id}
+                onPress={() => handleSearch(item.description)}
+                style={{
+                  ...styles.autoCompleteItem,
+                  paddingBottom:
+                    i === autoCompleteResults.length - 1
+                      ? 0
+                      : styles.autoCompleteItem.paddingBottom,
+                }}>
+                <Text variant="body-small">{item.description}</Text>
+              </Pressable>
+            ))}
+          </View>
         </Animated.View>
       )}
     </View>

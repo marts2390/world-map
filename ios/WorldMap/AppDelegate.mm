@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import <GoogleMaps/GoogleMaps.h>
+// #import <GoogleMaps/GoogleMaps.h>
 #import <React/RCTBundleURLProvider.h>
 #import "RNCConfig.h"
 
@@ -7,9 +7,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  NSString *apiUrl = [RNCConfig envFor:@"GOOGLE_MAPS_API_KEY"];
+  // NSString *apiUrl = [RNCConfig envFor:@"GOOGLE_MAPS_API_KEY"];
 
-  [GMSServices provideAPIKey:apiUrl];
+  // [GMSServices provideAPIKey:apiUrl];
 
   self.moduleName = @"WorldMap";
   // You can add your custom initial props in the dictionary below.

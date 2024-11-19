@@ -9,9 +9,9 @@ import delivery from '@src/delivery';
 import { AutocompleteResults } from '@src/types/AutocompleteResults';
 import { Marker } from '@src/types/Marker';
 import { PlaceDetails } from '@src/types/PlaceDetails';
+import { Region } from '@src/types/Region';
 import { AppRootState, Dispatch } from '@store/index';
 import { Dimensions } from 'react-native';
-import { Region } from 'react-native-maps';
 
 /**
  * Type declarations
@@ -126,7 +126,19 @@ export const handleSearch = createAsyncThunk<
   const { value, hasError } = await delivery.MapActions.getSearchResults(query);
 
   if (value) {
-    dispatch(getPlaceDetails({ id: value.results[0].place_id }));
+    const { place_id, geometry, name } = value.results[0];
+
+    dispatch(getPlaceDetails({ id: place_id }));
+    dispatch(
+      addMarker({
+        marker: {
+          id: place_id,
+          longitude: geometry.location.lng,
+          latitude: geometry.location.lat,
+          title: name,
+        },
+      }),
+    );
 
     const { width, height } = Dimensions.get('window');
 

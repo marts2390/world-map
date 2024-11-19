@@ -13,8 +13,14 @@ export const useStyles = (insets: EdgeInsets) =>
       width: '100%',
     },
     inputContainer: {
-      flexDirection: 'row',
-      gap: getSpacing(3, 'width'),
+      shadowColor: baseTheme.colors.black,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
     },
     input: {
       flex: 1,
@@ -30,7 +36,15 @@ export const useStyles = (insets: EdgeInsets) =>
       paddingHorizontal: getSpacing(3, 'width'),
       paddingVertical: getSpacing(4, 'height'),
       backgroundColor: baseTheme.colors.white,
-      borderRadius: getSpacing(4, 'width'),
+      borderRadius: getSpacing(2, 'width'),
+      shadowColor: baseTheme.colors.black,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
     },
     autoCompleteItem: {
       paddingBottom: getSpacing(3, 'height'),

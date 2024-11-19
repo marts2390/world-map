@@ -26,16 +26,14 @@ export const Review = ({ item }: ReviewProps): React.ReactElement => (
         {[...Array(5).keys()].map((i) => (
           <Fragment key={i}>
             {item.rating > i ? (
-              <Icon name="star" size={15} color="#FFD700" />
+              <Icon name="star" size={17.5} color="#FFD700" />
             ) : (
-              <Icon name="star-outline" size={15} color="#FFD700" />
+              <Icon name="star-outline" size={17.5} color="#FFD700" />
             )}
           </Fragment>
         ))}
       </View>
-      <Text style={styles.text} variant="body-small">
-        {item.text}
-      </Text>
+      <Text variant="body-small">{item.text}</Text>
     </View>
   </View>
 );

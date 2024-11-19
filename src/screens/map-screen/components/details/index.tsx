@@ -12,9 +12,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 // Theme
 import { baseTheme } from '@src/theme';
 // Styles
-import { styles } from './styles';
+import { useStyles } from './styles';
 // Animations
 import Animated, { FadeIn } from 'react-native-reanimated';
+import { getSpacing } from '@src/theme/utils/spacing';
 
 export const Details = (): React.ReactElement => {
   const dispatch = Store.useDispatch();
@@ -24,32 +25,24 @@ export const Details = (): React.ReactElement => {
   const markers = Store.useSelector((store) => store.markers.markers);
   const loading = Store.useSelector((store) => store.markers.detailsLoading);
 
+  const styles = useStyles(photos.length > 1);
+
   const isSaved = useMemo(
     () => !!markers.find((item) => item.id === details?.place_id),
     [markers, details],
   );
 
-  const handleAdd = useCallback((): void => {
+  const handleSaveRemove = useCallback((): void => {
     if (!details) return;
 
     if (!isSaved) {
-      dispatch(
-        Store.Markers.addMarker({
-          marker: {
-            id: details.place_id,
-            coords: {
-              latitude: details.geometry.location.lat,
-              longitude: details.geometry.location.lng,
-            },
-          },
-        }),
-      );
+      Store.Markers.updateMarkers(markers);
 
       return;
     }
 
     dispatch(Store.Markers.removeMarker({ id: details.place_id }));
-  }, [details, isSaved, dispatch]);
+  }, [details, isSaved, dispatch, markers]);
 
   return (
     <>
@@ -60,21 +53,26 @@ export const Details = (): React.ReactElement => {
       ) : (
         <Animated.View entering={FadeIn}>
           <View style={styles.container}>
+            <Button
+              size="small"
+              style={styles.button}
+              text={isSaved ? 'Remove' : 'Save'}
+              icon={
+                <Icon
+                  name={isSaved ? 'close' : 'bookmark-outline'}
+                  color={baseTheme.colors.white}
+                  size={20}
+                />
+              }
+              iconPosition="end"
+              onPress={handleSaveRemove}
+            />
             <View style={styles.title}>
               {details && (
-                <Text
-                  style={{ flex: 0.75 }}
-                  variant="display-2"
-                  weight="semi-bold">
+                <Text variant="display-2" weight="bold" resetMargin>
                   {details.name}
                 </Text>
               )}
-              <Button
-                size="small"
-                style={{ flex: 0.25, marginTop: 8 }}
-                text={isSaved ? 'Remove' : 'Save'}
-                onPress={handleAdd}
-              />
             </View>
             {[details?.formatted_address, details?.formatted_phone_number].map(
               (item, i) =>
@@ -86,7 +84,11 @@ export const Details = (): React.ReactElement => {
                         size={25}
                         color={baseTheme.colors.primary}
                       />
-                      <Text style={{ flex: 1 }} variant="body-small">
+                      <Text
+                        style={{ flex: 1 }}
+                        variant="body-small"
+                        weight="semi-bold"
+                        resetLineheight>
                         {item}
                       </Text>
                     </View>
@@ -101,7 +103,16 @@ export const Details = (): React.ReactElement => {
             horizontal
             data={photos}
             showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => <Image blob={item} styles={styles.image} />}
+            renderItem={({ item, index }) => (
+              <Image
+                blob={item}
+                styles={{
+                  ...styles.image,
+                  marginRight:
+                    index === photos.length - 1 ? getSpacing(5, 'width') : 0,
+                }}
+              />
+            )}
           />
           <FlatList
             data={details?.reviews}

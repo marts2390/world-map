@@ -13,8 +13,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2A6D95555864423A8FFF683C /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F6F3F084D441F4BAECCCCD /* Poppins-ExtraBoldItalic.ttf */; };
-		2FF3AC03D9A2272C2A5569FD /* libPods-WorldMap-WorldMapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 670A9CAD95505D6D66C4B529 /* libPods-WorldMap-WorldMapTests.a */; };
+		476EFE552CE8D134002F3043 /* MapViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476EFE542CE8D134002F3043 /* MapViewManager.swift */; };
+		476EFE572CE8D1DA002F3043 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 476EFE562CE8D1DA002F3043 /* MapViewManager.m */; };
 		4899C178556F4A85B7AA98E4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C943F5FBB9AD4F5CA032DDC1 /* Poppins-SemiBold.ttf */; };
+		4C3225D8E6964F545D5B3D4D /* libPods-WorldMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E40240FC4AEB211869B077 /* libPods-WorldMap.a */; };
 		5D503D94575D4B36B6FA4CBD /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4CF674C4E9941A2B4C21264 /* Poppins-Bold.ttf */; };
 		5F7060BE937645C9BB0FE2F2 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 341E9C94501C4AAAAABCCA4D /* Poppins-SemiBoldItalic.ttf */; };
 		6570CD37CEC64BC3EE8ECE1A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1936A1112CE2AA5047675F84 /* PrivacyInfo.xcprivacy */; };
@@ -23,7 +25,7 @@
 		8CB9C994E37043BBB3DA358C /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D188D55A71924CA498683D0D /* Poppins-Light.ttf */; };
 		96EF2B83F1A7421695DC399B /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09041572851247D2BE92D698 /* Poppins-ExtraBold.ttf */; };
 		981D70AB61AE4DF08C07D03C /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64A6FBCCCA4743C2B05B819C /* Poppins-MediumItalic.ttf */; };
-		B69D782D12776AB4424A092E /* libPods-WorldMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D199D980EBBC71F20D2900CB /* libPods-WorldMap.a */; };
+		A983E58F5711F73A5C6F7091 /* libPods-WorldMap-WorldMapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6921D1CD5F1DE677ACA3D33 /* libPods-WorldMap-WorldMapTests.a */; };
 		D123AEBE9C2D4478980D144D /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBB3D072F0124357B80614FE /* Poppins-Thin.ttf */; };
 		DD1117DD99A54A259EAD54C7 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56E7248FFB414C2EBA7B53D3 /* Poppins-Regular.ttf */; };
 		DF2F59ECDDA14528A34A6488 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD6CEB3796F64B0B9D0C52CB /* Poppins-Medium.ttf */; };
@@ -49,7 +51,8 @@
 		00E356EE1AD99517003FC87E /* WorldMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* WorldMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldMapTests.m; sourceTree = "<group>"; };
-		09041572851247D2BE92D698 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		09041572851247D2BE92D698 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		0C42D9ED4F5FDAC9D36A6157 /* Pods-WorldMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldMap.debug.xcconfig"; path = "Target Support Files/Pods-WorldMap/Pods-WorldMap.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* WorldMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = WorldMap/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = WorldMap/AppDelegate.mm; sourceTree = "<group>"; };
@@ -57,32 +60,34 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WorldMap/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WorldMap/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = WorldMap/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		14A0AF4BB1A449C2919921F8 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLightItalic.ttf"; path = "../assets/fonts/Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		1936A1112CE2AA5047675F84 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = WorldMap/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		20A90EDAF8E3255424CF4D41 /* Pods-WorldMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldMap.debug.xcconfig"; path = "Target Support Files/Pods-WorldMap/Pods-WorldMap.debug.xcconfig"; sourceTree = "<group>"; };
-		341E9C94501C4AAAAABCCA4D /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		342AA998AFCE463393171EEB /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-LightItalic.ttf"; path = "../assets/fonts/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
-		35F5005399F5456F8F483B20 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
-		467386554AF1BF16E526109F /* Pods-WorldMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldMap.release.xcconfig"; path = "Target Support Files/Pods-WorldMap/Pods-WorldMap.release.xcconfig"; sourceTree = "<group>"; };
-		53806D23C3ED4744BF54D6CF /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
-		56E7248FFB414C2EBA7B53D3 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		627D74BA5294420D8B7830AF /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
-		64A6FBCCCA4743C2B05B819C /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
-		670A9CAD95505D6D66C4B529 /* libPods-WorldMap-WorldMapTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorldMap-WorldMapTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		70AC2DCDC8CE06655EC639EC /* Pods-WorldMap-WorldMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldMap-WorldMapTests.release.xcconfig"; path = "Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		14A0AF4BB1A449C2919921F8 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLightItalic.ttf"; path = "../assets/fonts/Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		1936A1112CE2AA5047675F84 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = WorldMap/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1DE8A23936A6F4454D1A5A64 /* Pods-WorldMap-WorldMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldMap-WorldMapTests.release.xcconfig"; path = "Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		23E40240FC4AEB211869B077 /* libPods-WorldMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorldMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C1AF6B2A6A5C77500B6147D /* Pods-WorldMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldMap.release.xcconfig"; path = "Target Support Files/Pods-WorldMap/Pods-WorldMap.release.xcconfig"; sourceTree = "<group>"; };
+		341E9C94501C4AAAAABCCA4D /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		342AA998AFCE463393171EEB /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-LightItalic.ttf"; path = "../assets/fonts/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		35F5005399F5456F8F483B20 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
+		476EFE532CE8D134002F3043 /* WorldMap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorldMap-Bridging-Header.h"; sourceTree = "<group>"; };
+		476EFE542CE8D134002F3043 /* MapViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewManager.swift; sourceTree = "<group>"; };
+		476EFE562CE8D1DA002F3043 /* MapViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewManager.m; sourceTree = "<group>"; };
+		53806D23C3ED4744BF54D6CF /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
+		56E7248FFB414C2EBA7B53D3 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		627D74BA5294420D8B7830AF /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		64A6FBCCCA4743C2B05B819C /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = WorldMap/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9E808489D65F4AE8A99963E4 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
-		A3983ECADF78447ABADCB0CA /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
-		A4CF674C4E9941A2B4C21264 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
-		AD6CEB3796F64B0B9D0C52CB /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
-		AE1C5A259538475AB7F2D2AF /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
-		C943F5FBB9AD4F5CA032DDC1 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		CBB3D072F0124357B80614FE /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
-		D0F6F3F084D441F4BAECCCCD /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		D188D55A71924CA498683D0D /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
-		D199D980EBBC71F20D2900CB /* libPods-WorldMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorldMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E808489D65F4AE8A99963E4 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
+		A3983ECADF78447ABADCB0CA /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
+		A4CF674C4E9941A2B4C21264 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		A6921D1CD5F1DE677ACA3D33 /* libPods-WorldMap-WorldMapTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorldMap-WorldMapTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD6CEB3796F64B0B9D0C52CB /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		AE1C5A259538475AB7F2D2AF /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		C943F5FBB9AD4F5CA032DDC1 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		CBB3D072F0124357B80614FE /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		D0F6F3F084D441F4BAECCCCD /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		D188D55A71924CA498683D0D /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
+		E3B384710570BEF4D2E46C97 /* Pods-WorldMap-WorldMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldMap-WorldMapTests.debug.xcconfig"; path = "Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		EE502364C885CC112312F034 /* Pods-WorldMap-WorldMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldMap-WorldMapTests.debug.xcconfig"; path = "Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FF3AC03D9A2272C2A5569FD /* libPods-WorldMap-WorldMapTests.a in Frameworks */,
+				A983E58F5711F73A5C6F7091 /* libPods-WorldMap-WorldMapTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B69D782D12776AB4424A092E /* libPods-WorldMap.a in Frameworks */,
+				4C3225D8E6964F545D5B3D4D /* libPods-WorldMap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				D199D980EBBC71F20D2900CB /* libPods-WorldMap.a */,
-				670A9CAD95505D6D66C4B529 /* libPods-WorldMap-WorldMapTests.a */,
+				23E40240FC4AEB211869B077 /* libPods-WorldMap.a */,
+				A6921D1CD5F1DE677ACA3D33 /* libPods-WorldMap-WorldMapTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,6 +162,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				476EFE562CE8D1DA002F3043 /* MapViewManager.m */,
+				476EFE542CE8D134002F3043 /* MapViewManager.swift */,
+				476EFE532CE8D134002F3043 /* WorldMap-Bridging-Header.h */,
 				13B07FAE1A68108700A75B9A /* WorldMap */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* WorldMapTests */,
@@ -182,10 +190,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				20A90EDAF8E3255424CF4D41 /* Pods-WorldMap.debug.xcconfig */,
-				467386554AF1BF16E526109F /* Pods-WorldMap.release.xcconfig */,
-				EE502364C885CC112312F034 /* Pods-WorldMap-WorldMapTests.debug.xcconfig */,
-				70AC2DCDC8CE06655EC639EC /* Pods-WorldMap-WorldMapTests.release.xcconfig */,
+				0C42D9ED4F5FDAC9D36A6157 /* Pods-WorldMap.debug.xcconfig */,
+				2C1AF6B2A6A5C77500B6147D /* Pods-WorldMap.release.xcconfig */,
+				E3B384710570BEF4D2E46C97 /* Pods-WorldMap-WorldMapTests.debug.xcconfig */,
+				1DE8A23936A6F4454D1A5A64 /* Pods-WorldMap-WorldMapTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -213,7 +221,6 @@
 				A3983ECADF78447ABADCB0CA /* Poppins-ThinItalic.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,12 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "WorldMapTests" */;
 			buildPhases = (
-				DC957CE36B75F3C83A280BDE /* [CP] Check Pods Manifest.lock */,
+				59E404BAF9D07D383FF87F7D /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				3CFAE33A376F5C2619BB9354 /* [CP] Embed Pods Frameworks */,
-				E24F413BDE9826B4A64298E5 /* [CP] Copy Pods Resources */,
+				992797FC1E5C571E04ADFAA9 /* [CP] Embed Pods Frameworks */,
+				25E7AFF6DCC1DD30D6C9ADAC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,13 +251,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "WorldMap" */;
 			buildPhases = (
-				7A98BFD97664D067C7332DCC /* [CP] Check Pods Manifest.lock */,
+				E04765DD0207F3C02E52815C /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				E3F1DDF9C5952E83B6F9B96C /* [CP] Embed Pods Frameworks */,
-				DF8EA107B7199E32AC0394B8 /* [CP] Copy Pods Resources */,
+				8A0A73A896F1FA8005435AF0 /* [CP] Embed Pods Frameworks */,
+				98DBDE75279DC33808EFEAAA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,14 +274,15 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1520;
 					};
 				};
 			};
@@ -352,46 +360,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		3CFAE33A376F5C2619BB9354 /* [CP] Embed Pods Frameworks */ = {
+		25E7AFF6DCC1DD30D6C9ADAC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7A98BFD97664D067C7332DCC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WorldMap-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC957CE36B75F3C83A280BDE /* [CP] Check Pods Manifest.lock */ = {
+		59E404BAF9D07D383FF87F7D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,7 +399,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF8EA107B7199E32AC0394B8 /* [CP] Copy Pods Resources */ = {
+		8A0A73A896F1FA8005435AF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorldMap/Pods-WorldMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorldMap/Pods-WorldMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorldMap/Pods-WorldMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98DBDE75279DC33808EFEAAA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -430,38 +433,43 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorldMap/Pods-WorldMap-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E24F413BDE9826B4A64298E5 /* [CP] Copy Pods Resources */ = {
+		992797FC1E5C571E04ADFAA9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E3F1DDF9C5952E83B6F9B96C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorldMap/Pods-WorldMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorldMap/Pods-WorldMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorldMap/Pods-WorldMap-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorldMap-WorldMapTests/Pods-WorldMap-WorldMapTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E04765DD0207F3C02E52815C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WorldMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -481,6 +489,8 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				476EFE552CE8D134002F3043 /* MapViewManager.swift in Sources */,
+				476EFE572CE8D1DA002F3043 /* MapViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,8 +507,9 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE502364C885CC112312F034 /* Pods-WorldMap-WorldMapTests.debug.xcconfig */;
+			baseConfigurationReference = E3B384710570BEF4D2E46C97 /* Pods-WorldMap-WorldMapTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -524,8 +535,9 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70AC2DCDC8CE06655EC639EC /* Pods-WorldMap-WorldMapTests.release.xcconfig */;
+			baseConfigurationReference = 1DE8A23936A6F4454D1A5A64 /* Pods-WorldMap-WorldMapTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = WorldMapTests/Info.plist;
@@ -548,7 +560,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20A90EDAF8E3255424CF4D41 /* Pods-WorldMap.debug.xcconfig */;
+			baseConfigurationReference = 0C42D9ED4F5FDAC9D36A6157 /* Pods-WorldMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -567,6 +579,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = WorldMap;
+				SWIFT_OBJC_BRIDGING_HEADER = "WorldMap-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -575,7 +588,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 467386554AF1BF16E526109F /* Pods-WorldMap.release.xcconfig */;
+			baseConfigurationReference = 2C1AF6B2A6A5C77500B6147D /* Pods-WorldMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -593,6 +606,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = WorldMap;
+				SWIFT_OBJC_BRIDGING_HEADER = "WorldMap-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -633,6 +647,7 @@
 				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -718,6 +733,7 @@
 				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -755,6 +771,7 @@
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};

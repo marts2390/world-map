@@ -106,7 +106,9 @@ export const Button = ({
             {text}
           </Text>
           {icon && iconPosition === 'end' && (
-            <View testID={`${iconTestID}-end`}>{icon}</View>
+            <View style={styles.iconEnd} testID={`${iconTestID}-end`}>
+              {icon}
+            </View>
           )}
         </View>
       )}
@@ -157,6 +159,9 @@ const useStyles = (
     },
     iconStart: {
       marginRight: getSpacing(2, 'width'),
+    },
+    iconEnd: {
+      marginLeft: getSpacing(2, 'width'),
     },
     text: {
       height: '100%',
